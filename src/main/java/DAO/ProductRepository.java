@@ -36,13 +36,27 @@ public class ProductRepository {
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);
 		listOfProducts.add(tablet);
-		
-	
 	}
 	
 	public ArrayList<Product> getAllProducts(){
 		return(ArrayList<Product>)listOfProducts;
 	}
 	
+	public Product getProduct(String productId) {
+		Product product = null;
+		
+		// 사용자가 원하는 상품의 상세 정보를 가져와서
+		// product 객체에 저장하는 코드
+		for(Product nthProduct : listOfProducts) {
+			String nthProductId = nthProduct.getProductId();
+			
+			if(nthProductId.equals(productId)) {
+				product = nthProduct;
+				break;
+			}
+		}
+		
+		return product;
+	}
 	
 }
